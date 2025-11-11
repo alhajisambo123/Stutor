@@ -9,9 +9,9 @@ const roomTypes = [
   { title: "Health", value: "Health" },
 ];
 
-const hotelRoom = {
-  name: "hotelRoom",
-  title: "Hotel Room",
+const course = {
+  name: "course",
+  title: "Course",
   type: "document",
   fields: [
     defineField({
@@ -133,4 +133,4 @@ const hotelRoom = {
   ],
 };
 
-export default hotelRoom;
+export default course;
