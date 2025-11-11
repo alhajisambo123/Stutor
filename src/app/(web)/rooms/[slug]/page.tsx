@@ -263,7 +263,7 @@ const RoomDetails: React.FC<RoomDetailsProps> = ({ params }) => {
                     >
                       ✕
                     </button>
-                    <h3 className="text-xl font-bold mb-4">Send a Message</h3>
+                    <h3 className="text-xl font-bold mb-4">Send  Message</h3>
 
                     <form onSubmit={handleContactSubmit} className="space-y-3">
                       <input
