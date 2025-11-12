@@ -1,17 +1,17 @@
-import FeaturedRoom from "@/components/FeaturedRoom/FeaturedRoom";
+import FeaturedCourse from "@/components/FeaturedCourse/FeaturedCourse";
 import Gallery from "@/components/Gallery/Gallery";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import PageSearch from "@/components/PageSearch/PageSearch";
-import { getFeaturedRoom } from "@/libs/apis";
+import { getFeaturedCourse } from "@/libs/apis";
 
 const Home = async () => {
-  const featuredRoom = await getFeaturedRoom();
+  const featuredCourse = await getFeaturedCourse();
 
   return (
     <>
       <HeroSection />
       <PageSearch />
-      <FeaturedRoom featuredRoom={featuredRoom} />
+      <FeaturedCourse featuredCourse={featuredCourse} />
       <Gallery />
     </>
   );

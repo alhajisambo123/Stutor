@@ -1,4 +1,4 @@
-import { getRoomReviews } from "@/libs/apis";
+import { getCourseReviews } from "@/libs/apis";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -8,17 +8,17 @@ export async function GET(
   try {
     // Await the resolution of params
     const resolvedParams = await context.params;
-    const { id: roomId } = resolvedParams; // Destructure the ID from the resolved params
+    const { id: courseId } = resolvedParams; // Destructure the ID from the resolved params
 
-    if (!roomId) {
-      return new NextResponse("Room ID is required", { status: 400 });
+    if (!courseId) {
+      return new NextResponse("Course ID is required", { status: 400 });
     }
 
     // Fetch room reviews using the roomId
-    const roomReviews = await getRoomReviews(roomId);
+    const courseReviews = await getCourseReviews(courseId);
 
     // Return the JSON response
-    return NextResponse.json(roomReviews, {
+    return NextResponse.json(courseReviews, {
       status: 200,
       statusText: "Successful",
     });

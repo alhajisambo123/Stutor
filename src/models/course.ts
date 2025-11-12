@@ -18,7 +18,7 @@ type Slug = {
   current: string;
 };
 
-export type Room = {
+export type Course = {
   _id: string;
   coverImage: CoverImage;
   description: string;
@@ -42,14 +42,3 @@ export type Room = {
   type: string;
 };
 
-export type CreateBookingDto = {
-  user: string;
-  hotelRoom: string;
-  checkinDate: string;
-  checkoutDate: string;
-  numberOfDays: number;
-  adults: number;
-  children: number;
-  totalPrice: number;
-  discount: number;
-};

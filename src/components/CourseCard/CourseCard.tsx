@@ -1,16 +1,16 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import { Room } from "@/models/room";
+import { Course } from "@/models/course";
 import Link from "next/link";
 
 type Props = {
-  room: Room;
+  course: Course;
 };
 
-const RoomCard: FC<Props> = (props) => {
+const CourseCard: FC<Props> = (props) => {
   const {
-    room: { coverImage, name, price, type, description, slug, isBooked },
+    course: { coverImage, name, price, type, description, slug, isBooked },
   } = props;
 
   return (
@@ -36,7 +36,7 @@ const RoomCard: FC<Props> = (props) => {
         <p className="pt-3 pb-6">{description.slice(1, 100)}...</p>
 
         <Link
-          href={`/rooms/${slug.current}`}
+          href={`/courses/${slug.current}`}
           className="bg-primary inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold hover:-translate-y-2 hover:shadow-lg transition-all duration-500"
         >
           {isBooked ? "BOOKED" : "CHECK OUT"}
@@ -46,4 +46,4 @@ const RoomCard: FC<Props> = (props) => {
   );
 };
 
-export default RoomCard;
+export default CourseCard;

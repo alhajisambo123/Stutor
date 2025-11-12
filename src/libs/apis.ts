@@ -1,15 +1,14 @@
 import { CreateReviewDto, Review } from "./../models/review";
 import axios from "axios";
 
-import { CreateBookingDto, Room } from "@/models/room";
+import {  Course } from "@/models/course";
 import sanityClient from "./sanity";
 import * as queries from "./sanityQueries";
-import { Booking } from "@/models/booking";
 import { UpdateReviewDto } from "@/models/review";
 
-export async function getFeaturedRoom() {
-  const result = await sanityClient.fetch<Room>(
-    queries.getFeaturedRoomQuery,
+export async function getFeaturedCourse() {
+  const result = await sanityClient.fetch<Course>(
+    queries.getFeaturedCourseQuery,
     {},
     { cache: "no-cache" }
   );
@@ -17,18 +16,18 @@ export async function getFeaturedRoom() {
   return result;
 }
 
-export async function getRooms() {
-  const result = await sanityClient.fetch<Room[]>(
-    queries.getRoomsQuery,
+export async function getCourses() {
+  const result = await sanityClient.fetch<Course[]>(
+    queries.getCoursesQuery,
     {},
     { cache: "no-cache" }
   );
   return result;
 }
 
-export async function getRoom(slug: string) {
-  const result = await sanityClient.fetch<Room>(
-    queries.getRoom,
+export async function getCourse(slug: string) {
+  const result = await sanityClient.fetch<Course>(
+    queries.getCourse,
     { slug },
     { cache: "no-cache" }
   );
@@ -36,51 +35,15 @@ export async function getRoom(slug: string) {
   return result;
 }
 
-export const createBooking = async ({
-  adults,
-  checkinDate,
-  checkoutDate,
-  children,
-  discount,
-  hotelRoom,
-  numberOfDays,
-  totalPrice,
-  user,
-}: CreateBookingDto) => {
-  const mutation = {
-    mutations: [
-      {
-        create: {
-          _type: "booking",
-          user: { _type: "reference", _ref: user },
-          hotelRoom: { _type: "reference", _ref: hotelRoom },
-          checkinDate,
-          checkoutDate,
-          numberOfDays,
-          adults,
-          children,
-          totalPrice,
-          discount,
-        },
-      },
-    ],
-  };
 
-  const { data } = await axios.post(
-    `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
-    mutation,
-    { headers: { Authorization: `Bearer ${process.env.SANITY_STUDIO_TOKEN}` } }
-  );
+  
 
-  return data;
-};
-
-export const updateHotelRoom = async (hotelRoomId: string) => {
+export const updateCourse = async (courseId: string) => {
   const mutation = {
     mutations: [
       {
         patch: {
-          id: hotelRoomId,
+          id: courseId,
           set: {
             isBooked: true,
           },
@@ -98,18 +61,6 @@ export const updateHotelRoom = async (hotelRoomId: string) => {
   return data;
 };
 
-export async function getUserBookings(userId: string) {
-  const result = await sanityClient.fetch<Booking[]>(
-    queries.getUserBookingsQuery,
-    {
-      userId,
-    },
-    { cache: "no-cache" }
-  );
-
-  return result;
-}
-
 export async function getUserData(userId: string) {
   const result = await sanityClient.fetch(
     queries.getUserDataQuery,
@@ -122,15 +73,15 @@ export async function getUserData(userId: string) {
 
 export async function checkReviewExists(
   userId: string,
-  hotelRoomId: string
+  courseId: string
 ): Promise<null | { _id: string }> {
-  const query = `*[_type == 'review' && user._ref == $userId && hotelRoom._ref == $hotelRoomId][0] {
+  const query = `*[_type == 'review' && user._ref == $userId && course._ref == $courseId][0] {
     _id
   }`;
 
   const params = {
     userId,
-    hotelRoomId,
+    courseId,
   };
 
   const result = await sanityClient.fetch(query, params);
@@ -167,7 +118,7 @@ export const updateReview = async ({
 };
 
 export const createReview = async ({
-  hotelRoomId,
+  courseId,
   reviewText,
   userId,
   userRating,
@@ -181,9 +132,9 @@ export const createReview = async ({
             _type: "reference",
             _ref: userId,
           },
-          hotelRoom: {
+          course: {
             _type: "reference",
-            _ref: hotelRoomId,
+            _ref: courseId,
           },
           userRating,
           text: reviewText,
@@ -201,11 +152,11 @@ export const createReview = async ({
   return data;
 };
 
-export async function getRoomReviews(roomId: string) {
+export async function getCourseReviews(courseId: string) {
   const result = await sanityClient.fetch<Review[]>(
-    queries.getRoomReviewsQuery,
+    queries.getCourseReviewsQuery,
     {
-      roomId,
+      courseId,
     },
     { cache: "no-cache" }
   );

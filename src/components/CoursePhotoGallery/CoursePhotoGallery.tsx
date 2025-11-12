@@ -3,11 +3,11 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 
-import { Image as ImageType } from "@/models/room";
+import { Image as ImageType } from "@/models/course";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 
-const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
+const CoursePhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
   const [currenPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
@@ -42,7 +42,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
           <div className="hidden md:flex justify-center items-center w-full h-full">
             <Image
               src={photos[0].url}
-              alt={`Room Photo ${currenPhotoIndex + 1}`}
+              alt={`Course Photo ${currenPhotoIndex + 1}`}
               className="img scale-animation cursor-pointer"
               width={150}
               height={150}
@@ -52,7 +52,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
           <div className="md:hidden flex justify-center items-center w-full h-full">
             <Image
               src={photos[currenPhotoIndex].url}
-              alt={`Room Photo ${currenPhotoIndex + 1}`}
+              alt={`Course Photo ${currenPhotoIndex + 1}`}
               className="img"
               width={150}
               height={150}
@@ -80,7 +80,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 width={150}
                 height={150}
                 src={photo.url}
-                alt={`Room Photo ${index + 2}`}
+                alt={`Course Photo ${index + 2}`}
                 className="img scale-animation"
               />
             </div>
@@ -94,7 +94,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 width={150}
                 height={150}
                 src={photos[maximumVisiblePhotos - 1].url}
-                alt={`Room Photo ${maximumVisiblePhotos}`}
+                alt={`Course Photo ${maximumVisiblePhotos}`}
                 className="img"
               />
               <div className="absolute cursor-pointer text-white inset-0 flex justify-center bg-[rgba(0,0,0,0.5)] items-center text-2xl">
@@ -109,7 +109,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
             <div className="h-[75vh] w-[320px] md:w-[700px] relative">
               <Image
                 src={photos[currenPhotoIndex].url}
-                alt={`Room Photo ${currenPhotoIndex + 1}`}
+                alt={`Course Photo ${currenPhotoIndex + 1}`}
                 width={150}
                 height={150}
                 className="img"
@@ -143,4 +143,4 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
   );
 };
 
-export default HotelPhotoGallery;
+export default CoursePhotoGallery;

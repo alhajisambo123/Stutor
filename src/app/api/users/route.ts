@@ -44,14 +44,14 @@ export async function POST(req: NextRequest) {
     }
 
     const {
-      roomId,
+      courseId,
       reviewText,
       ratingValue,
-    }: { roomId: string; reviewText: string; ratingValue: number } =
+    }: { courseId: string; reviewText: string; ratingValue: number } =
       await req.json();
 
     // Validate required fields
-    if (!roomId || !reviewText || typeof ratingValue !== "number") {
+    if (!courseId || !reviewText || typeof ratingValue !== "number") {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
     const userId = session.user.id;
 
     // Check if the review already exists
-    const existingReview = await checkReviewExists(userId, roomId);
+    const existingReview = await checkReviewExists(userId, courseId);
 
     let data;
     if (existingReview) {
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     } else {
       // Create a new review
       data = await createReview({
-        hotelRoomId: roomId,
+        courseId: courseId,
         reviewText,
         userId,
         userRating: ratingValue,

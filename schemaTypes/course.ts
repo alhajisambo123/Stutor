@@ -100,24 +100,13 @@ const course = {
       title: "Contact",
       type: "text",
     }),
-    defineField({
-      name: "numberOfBeds",
-      title: "Number Of Beds",
-      type: "number",
-      validation: (Rule) => Rule.min(1),
-      initialValue: 1,
-    }),
+   
     defineField({
       name: "experience",
       title: "Experience",
       type: "text",
     }),
-    defineField({
-      name: "isBooked",
-      title: "Is Booked",
-      type: "boolean",
-      initialValue: false,
-    }),
+   
     defineField({
       name: "isFeatured",
       title: "Is Featured",

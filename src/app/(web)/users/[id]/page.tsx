@@ -6,7 +6,6 @@ import Image from "next/image";
 import axios from "axios";
 import { signOut } from "next-auth/react";
 
-import { getUserBookings } from "@/libs/apis";
 import { User } from "@/models/user";
 import LoadingSpinner from "../../loading";
 import { useState } from "react";
@@ -26,7 +25,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
   const [currentNav, setCurrentNav] = useState<
     "bookings" | "amount" | "ratings"
   >("bookings");
-  const [roomId, setRoomId] = useState<string | null>(null);
+  const [courseId, setCourseId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [ratingValue, setRatingValue] = useState<number | null>(0);
@@ -39,7 +38,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
       return toast.error("Please provide a rating text and a rating");
     }
 
-    if (!roomId) toast.error("Id not provided");
+    if (!courseId) toast.error("Id not provided");
 
     setIsSubmittingReview(true);
 
@@ -47,7 +46,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
       const { data } = await axios.post("/api/users", {
         reviewText: ratingText,
         ratingValue,
-        roomId,
+        courseId,
       });
       console.log(data);
       toast.success("Review Submitted");
@@ -57,13 +56,13 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
     } finally {
       setRatingText("");
       setRatingValue(null);
-      setRoomId(null);
+      setCourseId(null);
       setIsSubmittingReview(false);
       setIsRatingVisible(false);
     }
   };
 
-  const fetchUserBooking = async () => getUserBookings(userId);
+  
   const fetchUserData = async () => {
     const { data } = await axios.get<User>("/api/users");
     return data;
@@ -73,7 +72,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
     data: userBookings,
     error,
     isLoading,
-  } = useSWR("/api/userbooking", fetchUserBooking);
+  } = useSWR("/api/userbooking", );
 
   const {
     data: userData,
@@ -183,8 +182,8 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
           {currentNav === "bookings" ? (
             userBookings && (
               <Table
-                bookingDetails={userBookings}
-                setRoomId={setRoomId}
+              
+                setCourseId={setCourseId}
                 toggleRatingModal={toggleRatingModal}
               />
             )

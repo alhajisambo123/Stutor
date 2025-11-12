@@ -4,22 +4,22 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FC } from "react";
 
 type Props = {
-  roomTypeFilter: string;
+  courseTypeFilter: string;
   searchQuery: string;
-  setRoomTypeFilter: (value: string) => void;
+  setCourseTypeFilter: (value: string) => void;
   setSearchQuery: (value: string) => void;
 };
 
 const Search: FC<Props> = ({
-  roomTypeFilter,
+  courseTypeFilter,
   searchQuery,
-  setRoomTypeFilter,
+  setCourseTypeFilter,
   setSearchQuery,
 }) => {
   const router = useRouter();
 
-  const handleRoomTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setRoomTypeFilter(event.target.value);
+  const handleCourseTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCourseTypeFilter(event.target.value);
   };
 
   const handleSearchQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ const Search: FC<Props> = ({
   };
 
   const handleFilterClick = () => {
-    router.push(`/rooms?roomType=${roomTypeFilter}&searchQuery=${searchQuery}`);
+    router.push(`/courses?roomType=${courseTypeFilter}&searchQuery=${searchQuery}`);
   };
 
   return (
@@ -39,8 +39,8 @@ const Search: FC<Props> = ({
           </label>
           <div className="relative">
             <select
-              value={roomTypeFilter}
-              onChange={handleRoomTypeChange}
+              value={courseTypeFilter}
+              onChange={handleCourseTypeChange}
               className="w-full px-4 py-2 capitalize rounded leading-tight dark:bg-black focus:outline-none"
             >
               <option value="All">All</option>
