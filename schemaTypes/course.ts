@@ -1,6 +1,6 @@
 import { defineField } from "sanity";
 
-const roomTypes = [
+const courseTypes = [
   { title: "Humanities", value: "Humanities" },
   { title: "Engineering", value: "Engineering" },
   { title: "Basic/Applied", value: "Basic/Applied" },
@@ -9,9 +9,9 @@ const roomTypes = [
   { title: "Health", value: "Health" },
 ];
 
-const course = {
-  name: "course",
-  title: "Course",
+const couRse = {
+  name: "couRse",
+  title: "Cou Rse",
   type: "document",
   fields: [
     defineField({
@@ -74,10 +74,10 @@ const course = {
     }),
     defineField({
       name: "type",
-      title: "Room Type",
+      title: "Course Type",
       type: "string",
       options: {
-        list: roomTypes,
+        list: courseTypes,
       },
       validation: (Rule) => Rule.required(),
       initialValue: "basic",
@@ -91,8 +91,8 @@ const course = {
         "Please make sure you report to us incase you are facing any challenge with any of our tutors",
     }),
     defineField({
-      name: "decshin",
-      title: "Decshin",
+      name: "mysession",
+      title: "Mysession",
       type: "text",
     }),
     defineField({
@@ -122,4 +122,4 @@ const course = {
   ],
 };
 
-export default course;
+export default couRse;

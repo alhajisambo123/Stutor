@@ -12,7 +12,6 @@ import { useState } from "react";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import Table from "@/components/Table/Table";
-import Chart from "@/components/Chart/Chart";
 import RatingModal from "@/components/RatingModal/RatingModal";
 import BackDrop from "@/components/BackDrop/BackDrop";
 import toast from "react-hot-toast";
@@ -191,11 +190,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
             <></>
           )}
 
-          {currentNav === "amount" ? (
-            userBookings && <Chart userBookings={userBookings} />
-          ) : (
-            <></>
-          )}
+         
         </div>
       </div>
 

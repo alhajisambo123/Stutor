@@ -52,7 +52,7 @@ const Courses = () => {
 
         if (
           searchQuery &&
-          !courses.name.toLowerCase().includes(searchQuery.toLowerCase())
+          !courses.courseName.toLowerCase().includes(searchQuery.toLowerCase())
         ) {
           return false;
         }

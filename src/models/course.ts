@@ -22,23 +22,20 @@ export type Course = {
   _id: string;
   coverImage: CoverImage;
   description: string;
-  decshin: string;
+  mysession: string;
   experience: string;
 
   aboutme: string;
   contact: string;
 
-  dimension: string;
   discount: number;
   images: Image[];
-  isBooked: boolean;
   isFeatured: boolean;
-  name: string;
-  numberOfBeds: number;
-  offeredAmenities: Amenity[];
+  courseName: string;
+  // offeredAmenities: Amenity[];
   price: number;
   slug: Slug;
-  specialNote: string;
+  // specialNote: string;
   type: string;
 };
 

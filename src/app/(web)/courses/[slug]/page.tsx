@@ -1,7 +1,4 @@
 
-
-
-
 "use client";
 
 import React, { useState, useEffect, useTransition } from "react";
@@ -74,7 +71,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, course: course?.name || slug }),
+        body: JSON.stringify({ ...form, course: course?.courseName || slug }),
       });
 
       if (res.ok) {
@@ -109,12 +106,12 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
           <div className="md:col-span-8 md:w-full">
             <div>
               <h2 className="font-bold text-left text-lg md:text-2xl">
-                {course.name}
+                {course.courseName}
               </h2>
               <div className="flex my-11">
                 <div className="mb-11">
                   <h2 className="font-bold text-3xl mb-2">About My Session</h2>
-                  <p>{course.decshin} </p>
+                  <p>{course.mysession} </p>
                 </div>
               </div>
               <div className="mb-11">

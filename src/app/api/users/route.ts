@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     } else {
       // Create a new review
       data = await createReview({
-        courseId: courseId,
+        couRseId: courseId,
         reviewText,
         userId,
         userRating: ratingValue,
