@@ -82,25 +82,13 @@ const couRse = {
       validation: (Rule) => Rule.required(),
       initialValue: "basic",
     }),
-    defineField({
-      name: "specialNote",
-      title: "Special Note",
-      type: "text",
-      validation: (Rule) => Rule.required(),
-      initialValue:
-        "Please make sure you report to us incase you are facing any challenge with any of our tutors",
-    }),
+    
     defineField({
       name: "mysession",
       title: "Mysession",
       type: "text",
     }),
-    defineField({
-      name: "contact",
-      title: "Contact",
-      type: "text",
-    }),
-   
+    
     defineField({
       name: "experience",
       title: "Experience",
