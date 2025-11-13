@@ -19,18 +19,14 @@ export type Course = {
   description: string;
   mysession: string;
   experience: string;
-
   aboutme: string;
   contact: string;
-
   discount: number;
   images: Image[];
   isFeatured: boolean;
   courseName: string;
-  // offeredAmenities: Amenity[];
   price: number;
   slug: Slug;
-  // specialNote: string;
   type: string;
 };
 

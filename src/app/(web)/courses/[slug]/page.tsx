@@ -109,10 +109,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
                 {course.courseName}
               </h2>
               <div className="flex my-11">
-                <div className="mb-11">
-                  <h2 className="font-bold text-3xl mb-2">About My Session</h2>
-                  <p>{course.mysession} </p>
-                </div>
+                
               </div>
               <div className="mb-11">
                 <h2 className="font-bold text-3xl mb-2">About Me</h2>
@@ -123,11 +120,11 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
                 <h2 className="font-bold text-3xl mb-2">Experience</h2>
                 <p>{course.experience}</p>
               </div>
-
-              {/* ✅ Contact Section with Form Button */}
-              <div className="mb-11">
-                {/* <h2 className="font-bold text-3xl mb-2">BoMeok </h2> */}
-                {/* <p>{room.contact}</p> */}
+<div className="mb-11">
+                  <h2 className="font-bold text-3xl mb-2">My Session</h2>
+                  <p>{course.mysession} </p>
+                </div>
+             
 
                 <button
                   onClick={() => setShowForm(true)}
@@ -204,7 +201,6 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
