@@ -7,11 +7,6 @@ export type Image = {
   url: string;
 };
 
-type Amenity = {
-  _key: string;
-  amenity: string;
-  icon: string;
-};
 
 type Slug = {
   _type: string;

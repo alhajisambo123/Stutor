@@ -11,15 +11,12 @@ import LoadingSpinner from "../../loading";
 import { useState } from "react";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
-import Table from "@/components/Table/Table";
 import RatingModal from "@/components/RatingModal/RatingModal";
 import BackDrop from "@/components/BackDrop/BackDrop";
 import toast from "react-hot-toast";
 import React from "react";
 
-const UserDetails = (props: { params: Promise<{ id: string }> }) => {
-  const { params } = props;
-  const { id: userId } = React.use(params); // Unwrap params using React.use()
+const UserDetails = () => {
 
   const [currentNav, setCurrentNav] = useState<
     "bookings" | "amount" | "ratings"
@@ -178,17 +175,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
             </ol>
           </nav>
 
-          {currentNav === "bookings" ? (
-            userBookings && (
-              <Table
-              
-                setCourseId={setCourseId}
-                toggleRatingModal={toggleRatingModal}
-              />
-            )
-          ) : (
-            <></>
-          )}
+         
 
          
         </div>
