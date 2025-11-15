@@ -27,7 +27,7 @@ const Search: FC<Props> = ({
   };
 
   const handleFilterClick = () => {
-    router.push(`/courses?roomType=${courseTypeFilter}&searchQuery=${searchQuery}`);
+    router.push(`/courses?courseType=${courseTypeFilter}&searchQuery=${searchQuery}`);
   };
 
   return (

@@ -19,7 +19,7 @@ const FeaturedCourse: FC<Props> = (props) => {
         <div className="rounded-2xl overflow-hidden h-48 mb-4 md:mb-0">
           <Image
             src={featuredCourse.coverImage.url}
-            alt={featuredCourse.courseName}
+            alt={featuredCourse.name}
             width={300}
             height={300}
             className="img scale-animation"

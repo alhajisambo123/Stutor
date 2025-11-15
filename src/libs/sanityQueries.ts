@@ -10,7 +10,7 @@ export const getFeaturedCourseQuery = groq`*[_type == "couRse" && isFeatured == 
     discount,
     images,
     isFeatured,
-    courseName,
+    name,
     price,
     slug,
     coverImage
@@ -27,7 +27,7 @@ export const getCoursesQuery = groq`*[_type == "couRse"] {
     dimension,
     
     isFeatured,
-    courseName,
+    name,
     price,
     slug,
     type
@@ -44,9 +44,8 @@ export const getCourse = groq`*[_type == "couRse" && slug.current == $slug][0] {
     dimension,
     discount,
     images,
-    
     isFeatured,
-    courseName,
+    name,
     price,
     slug,
     type
@@ -64,7 +63,7 @@ export const getUserDataQuery = groq`*[_type == 'user' && _id == $userId][0] {
     image,
 }`;
 
-export const getCourseReviewsQuery = groq`*[_type == "review" && couRse._ref == $courseId] {
+export const getCourseReviewsQuery = groq`*[_type == "review" && course._ref == $courseId] {
     _createdAt,
     _id,
     text,

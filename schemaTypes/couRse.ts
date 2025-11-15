@@ -10,13 +10,13 @@ const courseTypes = [
 ];
 
 const couRse = {
-  name: "couRse",
-  title: "Cou Rse",
+  name: "course",
+  title: "Course",
   type: "document",
   fields: [
     defineField({
-      name: "name",
-      title: "Name",
+      name: "couRse",
+      title: "Cou Rse",
       type: "string",
       validation: (Rule) =>
         Rule.required().max(50).error("Maximum 50 Characters"),
@@ -25,7 +25,7 @@ const couRse = {
       name: "slug",
       type: "slug",
       options: {
-        source: "name",
+        source: "couRse",
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -80,7 +80,7 @@ const couRse = {
         list: courseTypes,
       },
       validation: (Rule) => Rule.required(),
-      initialValue: "basic",
+      initialValue: "Basic/Applied",
     }),
     
     defineField({

@@ -24,7 +24,7 @@ export type Course = {
   discount: number;
   images: Image[];
   isFeatured: boolean;
-  courseName: string;
+  name: string;
   price: number;
   slug: Slug;
   type: string;

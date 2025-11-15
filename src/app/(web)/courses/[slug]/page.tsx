@@ -71,7 +71,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, course: course?.courseName || slug }),
+        body: JSON.stringify({ ...form, course: course?.name || slug }),
       });
 
       if (res.ok) {
@@ -96,7 +96,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
     return <p>Error: Unable to fetch tutor details.</p>;
   }
   if (!course) return <p>No tutor data available.</p>;
-
+console.log(course.name,"saaaad")
   return (
     <div>
       <CoursePhotoGallery photos={course.images} />
@@ -106,7 +106,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
           <div className="md:col-span-8 md:w-full">
             <div>
               <h2 className="font-bold text-left text-lg md:text-2xl">
-                {course.courseName}
+                {course.name}
               </h2>
               <div className="flex my-11">
                 

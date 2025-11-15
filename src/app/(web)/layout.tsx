@@ -16,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Student Tutor Finder",
+  title: "Stutor",
   description:
     "Connect with student tutors for academic support and personal lessons",
 };

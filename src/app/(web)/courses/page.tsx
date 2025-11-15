@@ -41,18 +41,18 @@ const Courses = () => {
   // Filter rooms based on search query and room type
   const filterCourses = useCallback(
     (courses: Course[]): Course[] => {
-      return courses.filter((courses) => {
+      return courses.filter((course) => {
         if (
           courseTypeFilter &&
           courseTypeFilter.toLowerCase() !== "all" &&
-          courses.type.toLowerCase() !== courseTypeFilter.toLowerCase()
+          course.type.toLowerCase() !== courseTypeFilter.toLowerCase()
         ) {
           return false;
         }
 
         if (
           searchQuery &&
-          !courses.courseName.toLowerCase().includes(searchQuery.toLowerCase())
+          !course.courseName.toLowerCase().includes(searchQuery.toLowerCase())
         ) {
           return false;
         }
@@ -65,7 +65,7 @@ const Courses = () => {
 
   // Avoid conditional rendering of hooks
   const filteredCourses = data ? filterCourses(data) : [];
-
+console.log(data,"jail me")
   return (
     <div className="container mx-auto pt-10">
       {error && (

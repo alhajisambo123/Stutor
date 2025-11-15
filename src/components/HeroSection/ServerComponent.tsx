@@ -8,7 +8,7 @@ export const heading1 = (
       Connect with experienced student tutors for academic support and personal
       learning.
     </p>
-    <Link href="/rooms">
+    <Link href="/courses">
       <button className="btn-primary">Get Started</button>
     </Link>
   </>

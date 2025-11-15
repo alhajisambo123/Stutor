@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 
     // ✅ Compose email
     const mailOptions = {
-      from: `"Hotel Website" <${process.env.SMTP_USER}>`,
+      from: `"Course Website" <${process.env.SMTP_USER}>`,
       to: process.env.RECEIVER_EMAIL, // your email address
       subject: `New Contact Form Submission from ${name}`,
       text: `
