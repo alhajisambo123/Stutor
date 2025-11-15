@@ -96,7 +96,6 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
     return <p>Error: Unable to fetch tutor details.</p>;
   }
   if (!course) return <p>No tutor data available.</p>;
-console.log(course.name,"saaaad")
   return (
     <div>
       <CoursePhotoGallery photos={course.images} />
