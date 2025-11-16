@@ -15,8 +15,8 @@ const couRse = {
   type: "document",
   fields: [
     defineField({
-      name: "couRse",
-      title: "Cou Rse",
+      name: "name",
+      title: "Name",
       type: "string",
       validation: (Rule) =>
         Rule.required().max(50).error("Maximum 50 Characters"),
@@ -25,7 +25,7 @@ const couRse = {
       name: "slug",
       type: "slug",
       options: {
-        source: "couRse",
+        source: "name",
       },
       validation: (Rule) => Rule.required(),
     }),

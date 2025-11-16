@@ -13,10 +13,10 @@ const review = {
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "couRse",
-      title: "Cou Rse",
+      name: "course",
+      title: "Course",
       type: "reference",
-      to: [{ type: "couRse" }],
+      to: [{ type: "course" }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
