@@ -88,10 +88,20 @@ const couRse = {
       title: "Mysession",
       type: "text",
     }),
+    defineField({
+      name: "contact",
+      title: "Contact",
+      type: "text",
+    }),
     
     defineField({
       name: "experience",
       title: "Experience",
+      type: "text",
+    }),
+    defineField({
+      name: "aboutme",
+      title: "Aboutme",
       type: "text",
     }),
    

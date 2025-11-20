@@ -42,12 +42,8 @@ const user = {
       type: "datetime",
       hidden: true,
     }),
-    defineField({
-      name: "about",
-      title: "About",
-      type: "text",
-      description: "A brief dsecription about the user",
-    }),
+  
+    
   ],
 };
 

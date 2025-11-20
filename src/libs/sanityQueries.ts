@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const getFeaturedCourseQuery = groq`*[_type == "couRse" && isFeatured == true][0] {
+export const getFeaturedCourseQuery = groq`*[_type == "course" && isFeatured == true][0] {
     _id,
     description,
     mysession,
@@ -16,7 +16,7 @@ export const getFeaturedCourseQuery = groq`*[_type == "couRse" && isFeatured == 
     coverImage
 }`;
 
-export const getCoursesQuery = groq`*[_type == "couRse"] {
+export const getCoursesQuery = groq`*[_type == "course"] {
     _id,
     coverImage,
     description,
@@ -24,7 +24,6 @@ export const getCoursesQuery = groq`*[_type == "couRse"] {
     experience,
     aboutme,
     contact,
-    dimension,
     
     isFeatured,
     name,
@@ -33,7 +32,7 @@ export const getCoursesQuery = groq`*[_type == "couRse"] {
     type
 }`;
 
-export const getCourse = groq`*[_type == "couRse" && slug.current == $slug][0] {
+export const getCourse = groq`*[_type == "course" && slug.current == $slug][0] {
     _id,
     coverImage,
     description,
@@ -41,7 +40,6 @@ export const getCourse = groq`*[_type == "couRse" && slug.current == $slug][0] {
     experience,
     aboutme,
     contact,
-    dimension,
     discount,
     images,
     isFeatured,
