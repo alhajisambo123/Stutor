@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import { FC } from "react";
 
 import CountUpNumber from "../CountUpNumber/CountUpNumber";
