@@ -1,4 +1,5 @@
 import account from "./account";
+import verificationToken from './verificationToken';
 
 import review from "./review";
 import user from "./user";
@@ -7,5 +8,7 @@ export const schemaTypes = [
   user,
   account,
   couRse,
+    verificationToken,
+
   review,
 ];
