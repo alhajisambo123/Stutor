@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="mt-16 bg-primary">
       <div className="container mx-auto px-4 py-10">
         <Link href="/" className="font-black text-tertiary-dark text-2xl">
-          Agenda
+          Stutor
         </Link>
 
         <h4 className="font-semibold text-[40px] py-6">Contact Details</h4>
