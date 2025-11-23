@@ -70,3 +70,22 @@ export const getCourseReviewsQuery = groq`*[_type == "review" && course._ref == 
     },
     userRating
 }`;
+
+
+// libs/sanityQueries.ts
+export const getCoursesByUserQuery = groq`*[_type == "course" && tutor._ref == $userId]{
+  _id,
+  name,
+  description,
+  price,
+  discount,
+  type,
+  coverImage,
+  images,
+  mysession,
+  experience,
+  aboutme,
+  contact,
+  isFeatured,
+  slug
+}`;
