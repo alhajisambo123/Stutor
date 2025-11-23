@@ -6,22 +6,35 @@ import Image from "next/image";
 import axios from "axios";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
-import { BsJournalBookmarkFill } from "react-icons/bs";
-import { GiMoneyStack } from "react-icons/gi";
 import toast from "react-hot-toast";
-
 import LoadingSpinner from "../../loading";
 import RatingModal from "@/components/RatingModal/RatingModal";
 import BackDrop from "@/components/BackDrop/BackDrop";
 import { useParams } from "next/navigation";
 
+// Define types
+interface User {
+  _id: string;
+  name: string;
+  about?: string;
+  image?: string;
+  _createdAt: string;
+}
+
+interface Course {
+  _id: string;
+  name: string;
+  description?: string;
+  price?: number;
+  coverImage?: { url?: string };
+}
+
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 const UserDetails = () => {
-  const params = useParams(); // Get user ID from URL
+  const params = useParams();
   const userId = params.id;
 
-  const [currentNav, setCurrentNav] = useState<"bookings" | "amount" | "ratings">("bookings");
   const [courseId, setCourseId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
@@ -31,13 +44,13 @@ const UserDetails = () => {
   const toggleRatingModal = () => setIsRatingVisible(prev => !prev);
 
   // Fetch user info
-  const { data: userData, error: userError, isLoading: loadingUserData } = useSWR(
+  const { data: userData, error: userError, isLoading: loadingUserData } = useSWR<User>(
     `/api/users/${userId}`,
     fetcher
   );
 
   // Fetch courses created by this user
-  const { data: userCourses, error: coursesError, isLoading: loadingCourses } = useSWR(
+  const { data: userCourses, error: coursesError, isLoading: loadingCourses } = useSWR<Course[]>(
     `/api/courses?userId=${userId}`,
     fetcher
   );
@@ -113,7 +126,7 @@ const UserDetails = () => {
           <h6 className="text-xl font-bold mb-3">Courses by {userData.name}</h6>
           {userCourses && userCourses.length > 0 ? (
             <div className="grid md:grid-cols-2 gap-6">
-              {userCourses.map((course: any) => (
+              {userCourses.map((course) => (
                 <div key={course._id} className="border rounded-lg p-4 shadow-md">
                   <Image
                     src={course.coverImage?.url || "/hero-1.jpeg"}
@@ -126,7 +139,10 @@ const UserDetails = () => {
                   <p className="text-sm">{course.description}</p>
                   <p className="text-sm font-semibold mt-1">Price: GH₵ {course.price}</p>
                   <button
-                    onClick={() => { setCourseId(course._id); toggleRatingModal(); }}
+                    onClick={() => {
+                      setCourseId(course._id);
+                      toggleRatingModal();
+                    }}
                     className="mt-2 bg-blue-600 text-white px-3 py-1 rounded"
                   >
                     Rate this course
