@@ -66,7 +66,7 @@ const LoginPage = () => {
               onClick={socialLogin}
               className="mr-3 text-4xl cursor-pointer text-black dark:text-white"
             />
-            |
+        
             <FcGoogle
               onClick={socialLogin}
               className="ml-3 text-4xl cursor-pointer"
