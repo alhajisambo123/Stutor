@@ -19,7 +19,7 @@ const LoginPage = () => {
   // Redirect if already logged in
   useEffect(() => {
     if (session) router.push("/dashboard");
-  }, [session]);
+  }, [session, router]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -48,7 +48,7 @@ const LoginPage = () => {
     try {
       await signIn();
       router.push("/dashboard");
-    } catch (error) {
+    } catch (_) {
       toast.error("Something went wrong");
     }
   };

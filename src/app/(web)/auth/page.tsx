@@ -8,7 +8,6 @@ import { signIn, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-Link
 const defaultFormData = {
   email: "",
   name: "",
