@@ -7,7 +7,8 @@ import { signUp } from "next-auth-sanity/client";
 import { signIn, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
+Link
 const defaultFormData = {
   email: "",
   name: "",
@@ -116,10 +117,9 @@ const Auth = () => {
             Sign Up
           </button>
         </form>
-
-        <button onClick={loginHandler} className="text-blue-700 underline">
-          login
-        </button>
+ <Link href="/login">
+      <button className="btn-primary">Login</button>
+    </Link>
       </div>
     </section>
   );

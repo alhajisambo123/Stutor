@@ -117,6 +117,13 @@ const couRse = {
       type: "array",
       of: [{ type: "review" }],
     }),
+    defineField({
+  name: "tutor",
+  title: "Tutor",
+  type: "reference",
+  to: [{ type: "user" }],
+  validation: (Rule) => Rule.required(), // ensures every course is assigned to a tutor
+})
   ],
 };
 
