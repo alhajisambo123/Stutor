@@ -1,18 +1,21 @@
-// pages/api/courses.ts
-import { NextApiRequest, NextApiResponse } from "next";
+// app/api/courses/route.ts
+import { NextRequest, NextResponse } from "next/server";
 import sanityClient from "@/libs/sanity";
 import { getCoursesByUserQuery } from "@/libs/sanityQueries";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { userId } = req.query;
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const userId = searchParams.get("userId");
 
-  if (!userId) return res.status(400).json({ error: "User ID is required" });
+  if (!userId) {
+    return NextResponse.json({ error: "User ID is required" }, { status: 400 });
+  }
 
   try {
     const courses = await sanityClient.fetch(getCoursesByUserQuery, { userId });
-    res.status(200).json(courses);
+    return NextResponse.json(courses, { status: 200 });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Failed to fetch courses" });
+    return NextResponse.json({ error: "Failed to fetch courses" }, { status: 500 });
   }
 }
