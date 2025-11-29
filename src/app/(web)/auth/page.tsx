@@ -8,6 +8,7 @@ import { signIn, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+
 const defaultFormData = {
   email: "",
   name: "",
@@ -16,29 +17,27 @@ const defaultFormData = {
 
 const Auth = () => {
   const [formData, setFormData] = useState(defaultFormData);
+  const { data: session } = useSession();
+  const router = useRouter();
 
   const inputStyles =
-    "border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none";
+    "border border-gray-300 text-black rounded-lg block w-full p-3 focus:outline-none focus:ring-2 focus:ring-primary";
+
+  useEffect(() => {
+    if (session) router.push("/");
+  }, [session, router]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const { data: session } = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (session) router.push("/");
-  }, [router, session]);
-
-  const loginHandler = async () => {
+  const handleOAuthLogin = async () => {
     try {
       await signIn();
       router.push("/");
-    } catch (error) {
-      console.log(error);
-      toast.error("Something wen't wrong");
+    } catch {
+      toast.error("Something went wrong");
     }
   };
 
@@ -47,61 +46,57 @@ const Auth = () => {
 
     try {
       const user = await signUp(formData);
-      if (user) {
-        toast.success("Success. Please sign in");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something wen't wrong");
+      if (user) toast.success("Account created! Please sign in.");
+    } catch {
+      toast.error("Something went wrong");
     } finally {
       setFormData(defaultFormData);
     }
   };
 
   return (
-    <section className="container mx-auto">
-      <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-80 md:w-[70%] mx-auto">
-        <div className="flex mb-8 flex-col md:flex-row items-center justify-between">
-          <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
-            Create an account
-          </h1>
-          <p>OR</p>
-          <span className="inline-flex items-center">
-            <AiFillGithub
-              onClick={loginHandler}
-              className="mr-3 text-4xl cursor-pointer text-black dark:text-white"
-            />{" "}
-            |
-            <FcGoogle
-              onClick={loginHandler}
-              className="ml-3 text-4xl cursor-pointer"
-            />
-          </span>
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          Create an Account
+        </h1>
+
+        {/* Social Login */}
+        <div className="flex items-center justify-center gap-6 mb-6">
+       
+          <FcGoogle
+            onClick={handleOAuthLogin}
+            className="text-4xl cursor-pointer hover:opacity-70 transition"
+          />
         </div>
 
-        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+        <p className="text-center text-gray-500 mb-4">Or register with email</p>
+
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
-            placeholder="name@company.com"
+            placeholder="Email address"
             required
             className={inputStyles}
             value={formData.email}
             onChange={handleInputChange}
           />
+
           <input
             type="text"
             name="name"
-            placeholder="John Doe"
+            placeholder="Full name"
             required
             className={inputStyles}
             value={formData.name}
             onChange={handleInputChange}
           />
+
           <input
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password (min 6 characters)"
             required
             minLength={6}
             className={inputStyles}
@@ -109,16 +104,17 @@ const Auth = () => {
             onChange={handleInputChange}
           />
 
-          <button
-            type="submit"
-            className="w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >
-            Sign Up
+          <button type="submit" className="btn-primary w-full py-3 rounded-lg">
+            Create Account
           </button>
         </form>
- <Link href="/login">
-      <button className="btn-primary">Login</button>
-    </Link>
+
+        <p className="mt-6 text-center text-gray-600">
+          Already have an account?{" "}
+          <Link href="/login" className="text-primary font-semibold">
+            Login
+          </Link>
+        </p>
       </div>
     </section>
   );
