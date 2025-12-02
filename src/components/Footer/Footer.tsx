@@ -10,53 +10,75 @@ import { BiMessageDetail } from "react-icons/bi";
 
 const Footer = () => {
   return (
-    <footer className="mt-16 bg-primary">
-      <div className="container mx-auto px-4 py-10">
-        <Link href="/" className="font-black text-tertiary-dark text-2xl">
-          Stutor
-        </Link>
-
-        <h4 className="font-semibold text-[40px] py-6">Contact Details</h4>
-
-        <div className="flex flex-wrap gap-16 items-center justify-between">
-          {/* Contact Section */}
+    <footer className="mt-16 bg-primary text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10">
+          {/* Logo & About */}
           <div className="flex-1">
-            <p>Legon, Accra</p>
-            <div className="flex items-center py-4"></div>
-            <div className="flex items-center">
-              <BsTelephoneOutbound />
-              <p className="ml-2">0547038272</p>
-            </div>
-            <div className="flex items-center pt-4">
-              <BiMessageDetail />
-              <p className="ml-2">maijidakhadi@gmail.com</p>
-            </div>
+            <Link href="/" className="font-black text-3xl">
+              Stutor
+            </Link>
+            <p className="mt-4 text-gray-200 max-w-sm">
+              Stutor is a platform for University of Ghana students to find 
+              peer tutors and promote academic excellence. Browse tutors, 
+              check their courses, and book sessions directly.
+            </p>
           </div>
 
-          <div className="flex-1 md:text-right">
-            <Link href="https://www.facebook.com">
-              <p className="pb-4">Our Privacy Commitment</p>
-            </Link>
-            <Link href="https://www.facebook.com">
-              <p className="pb-4">Customer Assistance</p>
-            </Link>
-            <Link href="https://www.facebook.com">
-              <p className="pb-4">Terms of Service</p>
-            </Link>
-            <Link href="https://www.facebook.com">
-              <p className="pb-4">Our Story</p>
-            </Link>
+          {/* Quick Links */}
+          <div className="flex-1">
+            <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+            
+              <li>
+                <Link href="/How-it-works" className="hover:text-gray-300">
+                  How it works
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-gray-300">
+                  About Us
+                </Link>
+              </li>
+                <li>
+                <Link href="/privacy-policy" className="hover:text-gray-300">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="hover:text-gray-300">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex-1 md:text-right">
-            <p className="pb-4">Basic & Applied Sciences</p>
-            <p className="pb-4">Health Sciences</p>
-            <p className="pb-4">Engineering</p>
-            <p className="pb-4">Humanities</p>
+          {/* Course Categories */}
+          <div className="flex-1">
+            <h4 className="font-semibold text-lg mb-4">Course Categories</h4>
+            <ul className="space-y-2">
+              <li>Basic & Applied Sciences</li>
+              <li>Health Sciences</li>
+              <li>Engineering</li>
+              <li>Humanities</li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="flex-1">
+            <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
+            <p className="flex items-center gap-2">
+              <BsTelephoneOutbound /> 0547038272/0505650521
+            </p>
+            <p className="flex items-center gap-2 mt-2">
+              <BiMessageDetail /> maijidakhadi@gmail.com
+            </p>
+            <p className="mt-2">Legon, Accra</p>
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-start mt-10 space-x-6">
+        {/* Social Icons */}
+        <div className="flex justify-center md:justify-start mt-8 space-x-6">
           <Link href="https://www.facebook.com" target="_blank">
             <BsFacebook className="text-2xl hover:text-blue-600 transition duration-300" />
           </Link>
@@ -70,6 +92,10 @@ const Footer = () => {
             <BsLinkedin className="text-2xl hover:text-blue-700 transition duration-300" />
           </Link>
         </div>
+
+        <p className="text-center text-gray-400 mt-10">
+          &copy; {new Date().getFullYear()} Stutor. All rights reserved.
+        </p>
       </div>
     </footer>
   );

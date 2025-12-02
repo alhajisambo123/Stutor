@@ -24,7 +24,7 @@ const Header = () => {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-4">
-          <Link href="/" className="font-black text-tertiary-dark text-2xl">
+          <Link href="/" className="font-black text-primary text-2xl">
             Stutor
           </Link>
           <ul className='flex items-center ml-5'>
@@ -77,13 +77,13 @@ const Header = () => {
             <Link href="/">Home</Link>
           </li>
           <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/courses">Tutors</Link>
+            <Link href="/courses">Courses</Link>
           </li>
           <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/about">Become a Tutor</Link>
+            <Link href="/auth">Become a Tutor</Link>
           </li>
           <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/auth">How it works</Link>
+            <Link href="/contact">Contact Us</Link>
           </li>
         </ul>
 
@@ -109,9 +109,8 @@ const Header = () => {
             Become a Tutor
           </Link>
 
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
-            About us
-          </Link>
+          <Link href="/" onClick={() => setMenuOpen(false)}>
+How it works          </Link>
           {/* <li className="hover:-translate-y-2 duration-500 transition-all">
             <Link href="/about">About us</Link>
           </li> */}

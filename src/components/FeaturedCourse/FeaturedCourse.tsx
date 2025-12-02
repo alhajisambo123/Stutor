@@ -57,7 +57,7 @@ const FeaturedCourse: FC<Props> = ({ featuredCourse }) => {
           {/* Price + Discount */}
           <div className="flex mb-3 md:mb-0">
             <div className="flex gap-3 flex-col items-center justify-center mr-4">
-              <p className="text-xs lg:text-xl text-center">Start From</p>
+              <p className="text-xs lg:text-xl text-center">Per Month</p>
               <p className="md:font-bold flex font-medium text-lg xl:text-5xl text-primary">
                 GHS {featuredCourse.price}
               </p>

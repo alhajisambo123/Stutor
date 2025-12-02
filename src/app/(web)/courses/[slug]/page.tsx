@@ -105,14 +105,18 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
           <div className="md:col-span-8 md:w-full">
             <div>
               <h2 className="font-bold text-left text-lg md:text-2xl">
-                {course.name}
+                {course.name}  <span className="text-primary ml-8" >GH₵  {course.price} Per Month</span>
               </h2>
-              <div className="flex my-11">
+              <div className="flex my-6">
                 
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-2">About Me</h2>
+                <h2 className="font-bold text-3xl mb-2">Course Description</h2>
                 <p>{course.description}</p>
+              </div>
+              <div className="mb-11">
+                <h2 className="font-bold text-3xl mb-2">About Me</h2>
+                <p>{course.aboutme}</p>
               </div>
 
               <div className="mb-11">
@@ -123,6 +127,8 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ params }) => {
                   <h2 className="font-bold text-3xl mb-2">My Session</h2>
                   <p>{course.mysession} </p>
                 </div>
+
+                
              
 
                 <button
