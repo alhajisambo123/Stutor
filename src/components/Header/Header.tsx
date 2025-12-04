@@ -105,22 +105,12 @@ const Header = () => {
           <Link href="/courses" onClick={() => setMenuOpen(false)}>
             Tutors
           </Link>
-          <Link href="/becomeatutor" onClick={() => setMenuOpen(false)}>
+          <Link href="/auth" onClick={() => setMenuOpen(false)}>
             Become a Tutor
           </Link>
 
-          <Link href="/" onClick={() => setMenuOpen(false)}>
-How it works          </Link>
-          {/* <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/about">About us</Link>
-          </li> */}
-
-          {/* <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/about">Become a Tutor</Link>
-          </li> */}
-          {/* <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/about">How it works</Link>
-          </li> */}
+                     <Link href="/contact">Contact Us</Link>
+          
         </div>
       )}
     </header>

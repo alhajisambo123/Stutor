@@ -71,7 +71,7 @@ const Footer = () => {
               <BsTelephoneOutbound /> 0547038272/0505650521
             </p>
             <p className="flex items-center gap-2 mt-2">
-              <BiMessageDetail /> maijidakhadi@gmail.com
+              <BiMessageDetail /> stutor88@gmail.com
             </p>
             <p className="mt-2">Legon, Accra</p>
           </div>

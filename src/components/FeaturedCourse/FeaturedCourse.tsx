@@ -48,7 +48,7 @@ const FeaturedCourse: FC<Props> = ({ featuredCourse }) => {
 
       {/* RIGHT DETAILS */}
       <div className="md:py-10 md:w-1/2 text-left">
-        <h3 className="font-heading mb-12 text-primary">Featured Tutor</h3>
+        <h3 className="font-heading mb-12 text-primary">Featured Course</h3>
 
         <p className="font-normal max-w-md">{featuredCourse.description}</p>
 
