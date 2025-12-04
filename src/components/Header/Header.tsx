@@ -103,7 +103,7 @@ const Header = () => {
             Home
           </Link>
           <Link href="/courses" onClick={() => setMenuOpen(false)}>
-            Tutors
+            Courses
           </Link>
           <Link href="/auth" onClick={() => setMenuOpen(false)}>
             Become a Tutor
