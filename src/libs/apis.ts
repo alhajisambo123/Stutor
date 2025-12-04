@@ -75,7 +75,7 @@ export async function checkReviewExists(
   userId: string,
   courseId: string
 ): Promise<null | { _id: string }> {
-  const query = `*[_type == 'review' && user._ref == $userId && couRse._ref == $couRseId][0] {
+  const query = `*[_type == 'review' && user._ref == $userId && course._ref == $courseId][0] {
     _id
   }`;
 
@@ -132,7 +132,7 @@ export const createReview = async ({
             _type: "reference",
             _ref: userId,
           },
-          couRse: {
+          course: {
             _type: "reference",
             _ref: courseId,
           },
