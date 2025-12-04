@@ -38,12 +38,12 @@ export async function getCourse(slug: string) {
 
   
 
-export const updateCouRse= async (couRseId: string) => {
+export const updateCouRse= async (courseId: string) => {
   const mutation = {
     mutations: [
       {
         patch: {
-          id: couRseId,
+          id: courseId,
           set: {
             isBooked: true,
           },
@@ -73,7 +73,7 @@ export async function getUserData(userId: string) {
 
 export async function checkReviewExists(
   userId: string,
-  couRseId: string
+  courseId: string
 ): Promise<null | { _id: string }> {
   const query = `*[_type == 'review' && user._ref == $userId && couRse._ref == $couRseId][0] {
     _id
@@ -81,7 +81,7 @@ export async function checkReviewExists(
 
   const params = {
     userId,
-    couRseId,
+    courseId,
   };
 
   const result = await sanityClient.fetch(query, params);
@@ -118,7 +118,7 @@ export const updateReview = async ({
 };
 
 export const createReview = async ({
-  couRseId,
+  courseId,
   reviewText,
   userId,
   userRating,
@@ -134,7 +134,7 @@ export const createReview = async ({
           },
           couRse: {
             _type: "reference",
-            _ref: couRseId,
+            _ref: courseId,
           },
           userRating,
           text: reviewText,
