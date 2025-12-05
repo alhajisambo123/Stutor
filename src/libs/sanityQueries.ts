@@ -66,7 +66,7 @@ export const getCourseReviewsQuery = groq`*[_type == "review" && course._ref == 
     _id,
     text,
     user -> {
-        name
+        _id, name, image
     },
     userRating
 }`;
