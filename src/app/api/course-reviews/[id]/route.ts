@@ -29,13 +29,12 @@
 //     return new NextResponse("Unable to fetch reviews", { status: 500 });
 //   }
 // }
-
 import { getCourseReviews } from "@/libs/apis";
 import { NextResponse } from "next/server";
 
 export async function GET(
   req: Request,
-  context: { params: { id: string } }
+  context: { params: { id: string } }  // <-- correct type
 ) {
   try {
     const { id: courseId } = context.params;
