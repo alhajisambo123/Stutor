@@ -156,6 +156,35 @@
 //   }
 // };
 
+//   // helper to upload an array of files
+//   // const uploadFiles = async (files: File[], field: "coverImage" | "images") => {
+//   //   const uploadedFiles: UploadedImage[] = [];
+//   //   setLoading(true);
+//   //   try {
+//   //     for (const file of files) {
+//   //       const formData = new FormData();
+//   //       formData.append("file", file);
+
+//   //       const res = await fetch("/api/upload", { method: "POST", body: formData });
+//   //       if (!res.ok) throw new Error("Upload failed");
+//   //       const data: { url: string } = await res.json();
+//   //       uploadedFiles.push({ url: data.url, _key: uuidv4() });
+//   //     }
+
+//   //     if (field === "coverImage") {
+//   //       handleChange("coverImage", uploadedFiles[0]);
+//   //     } else {
+//   //       handleChange("images", [...(course.images || []), ...uploadedFiles]);
+//   //     }
+
+//   //     toast.success("Upload successful!");
+//   //   } catch (err) {
+//   //     console.error(err);
+//   //     toast.error("Upload failed");
+//   //   } finally {
+//   //     setLoading(false);
+//   //   }
+//   // };
 
 //   const handleRemoveImage = (key: string) => {
 //     handleChange(
@@ -486,6 +515,8 @@
 //   );
 // }
 
+
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -556,12 +587,10 @@ export default function Dashboard() {
         if (res.data.length > 0) {
           const fetchedCourse = res.data[0];
 
-          // Ensure coverImage has _key
           if (fetchedCourse.coverImage && !fetchedCourse.coverImage._key) {
             fetchedCourse.coverImage._key = uuidv4();
           }
 
-          // Ensure all images have _key
           if (fetchedCourse.images) {
             const imagesWithKeys = fetchedCourse.images.map((img) => ({
               _key: img._key || uuidv4(),
@@ -572,7 +601,6 @@ export default function Dashboard() {
             fetchedCourse.images = [];
           }
 
-          // Ensure slug exists
           if (!fetchedCourse.slug) {
             fetchedCourse.slug = { _type: "slug", current: generateSlug(fetchedCourse.name || "") };
           }
@@ -587,7 +615,6 @@ export default function Dashboard() {
     fetchCourse();
   }, [session]);
 
-  // Handle field changes
   const handleChange = <K extends keyof Course>(field: K, value: Course[K]) => {
     setCourse((prev) => ({
       ...prev,
@@ -595,28 +622,21 @@ export default function Dashboard() {
     }));
   };
 
-  // Handle file uploads
   const handleFileUpload = async (
     e: React.ChangeEvent<HTMLInputElement>,
     field: "coverImage" | "images"
   ) => {
     if (!e.target.files) return;
-
     const files = Array.from(e.target.files);
     const uploadedFiles: UploadedImage[] = [];
 
     setLoading(true);
-
     try {
       for (const file of files) {
         const formData = new FormData();
         formData.append("file", file);
 
-        const res = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-
+        const res = await fetch("/api/upload", { method: "POST", body: formData });
         const data: { url: string } = await res.json();
         uploadedFiles.push({ url: data.url, _key: uuidv4() });
       }
@@ -624,10 +644,7 @@ export default function Dashboard() {
       if (field === "coverImage") {
         handleChange("coverImage", uploadedFiles[0]);
       } else {
-        handleChange("images", [
-          ...(course.images || []),
-          ...uploadedFiles,
-        ]);
+        handleChange("images", [...(course.images || []), ...uploadedFiles]);
       }
 
       toast.success("Upload successful!");
@@ -662,14 +679,14 @@ export default function Dashboard() {
         userId: session.user.id,
         name: course.name,
         slug: course.slug || { _type: "slug", current: generateSlug(course.name) },
-        aboutme: course.aboutme || "",
-        experience: course.experience || "",
-        mysession: course.mysession || "",
-        contact: course.contact || "",
-        discount: course.discount ?? 0,
-        price: course.price ?? 0,
-        description: course.description || "",
-        type: course.type || "Basic/Applied",
+        aboutme: course.aboutme,
+        experience: course.experience,
+        mysession: course.mysession,
+        contact: course.contact,
+        discount: course.discount,
+        price: course.price,
+        description: course.description,
+        type: course.type,
         coverImage: course.coverImage ? { ...course.coverImage, _key: course.coverImage._key || uuidv4() } : undefined,
         images: (course.images || []).map((img) => ({ url: img.url, _key: img._key || uuidv4() })),
       };
@@ -708,7 +725,7 @@ export default function Dashboard() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-6xl">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+      <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
           {session.user?.image ? (
             <Image
@@ -733,6 +750,7 @@ export default function Dashboard() {
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
             className="px-4 py-2 rounded border border-gray-200 hover:bg-gray-50"
+            aria-label="Logout"
           >
             Logout
           </button>
@@ -740,6 +758,7 @@ export default function Dashboard() {
             onClick={handleSubmit}
             disabled={loading}
             className="btn-primary px-4 py-2 rounded"
+            aria-label="Save course"
           >
             {loading ? "Saving..." : course._id ? "Update Course" : "Save Course"}
           </button>
@@ -786,56 +805,57 @@ export default function Dashboard() {
               rows={5}
               value={course.description || ""}
               onChange={(e) => handleChange("description", e.target.value)}
-              className="border w-full px-4 py-3 rounded-md"
+              className="border w-full px-4 py-3 rounded-md resize-none"
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              Price & Discounts
               <input
                 type="number"
-                placeholder="Price"
-                value={course.price ?? 0}
+                placeholder="Price (GHS)"
+                value={course.price ?? ""}
                 onChange={(e) => handleChange("price", Number(e.target.value))}
                 className="border px-4 py-3 rounded-md"
               />
               <input
                 type="number"
                 placeholder="Discount"
-                value={course.discount ?? 0}
+                value={course.discount ?? ""}
                 onChange={(e) => handleChange("discount", Number(e.target.value))}
                 className="border px-4 py-3 rounded-md"
               />
-              <input
-                type="text"
-                placeholder="My Session"
-                value={course.mysession || ""}
-                onChange={(e) => handleChange("mysession", e.target.value)}
-                className="border px-4 py-3 rounded-md"
-              />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Experience"
-                value={course.experience || ""}
-                onChange={(e) => handleChange("experience", e.target.value)}
-                className="border px-4 py-3 rounded-md"
-              />
-              <input
-                type="text"
-                placeholder="Contact"
-                value={course.contact || ""}
-                onChange={(e) => handleChange("contact", e.target.value)}
-                className="border px-4 py-3 rounded-md"
-              />
-            </div>
+            <textarea
+              placeholder="Your Session"
+              rows={3}
+              value={course.mysession || ""}
+              onChange={(e) => handleChange("mysession", e.target.value)}
+              className="border px-4 py-3 rounded-md w-full resize-none"
+            />
+
+            <textarea
+              placeholder="Your Experience"
+              rows={3}
+              value={course.experience || ""}
+              onChange={(e) => handleChange("experience", e.target.value)}
+              className="border px-4 py-3 rounded-md w-full resize-none"
+            />
 
             <input
               type="text"
+              placeholder="Contact e.g 0547038272"
+              value={course.contact || ""}
+              onChange={(e) => handleChange("contact", e.target.value)}
+              className="border px-4 py-3 rounded-md w-full"
+            />
+
+            <textarea
               placeholder="About Me"
+              rows={3}
               value={course.aboutme || ""}
               onChange={(e) => handleChange("aboutme", e.target.value)}
-              className="border px-4 py-3 rounded-md w-full"
+              className="border px-4 py-3 rounded-md w-full resize-none"
             />
           </div>
 
@@ -856,6 +876,7 @@ export default function Dashboard() {
                     <button
                       onClick={handleRemoveCover}
                       className="absolute top-2 right-2 bg-white/90 text-red-600 rounded-full w-8 h-8 flex items-center justify-center shadow"
+                      aria-label="Remove cover"
                     >
                       ×
                     </button>
@@ -909,6 +930,7 @@ export default function Dashboard() {
                     <button
                       onClick={() => handleRemoveImage(img._key)}
                       className="absolute top-1 right-1 bg-white/90 text-red-600 rounded-full w-6 h-6 flex items-center justify-center shadow"
+                      aria-label="Remove image"
                     >
                       ×
                     </button>
