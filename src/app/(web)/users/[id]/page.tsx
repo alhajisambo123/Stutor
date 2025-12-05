@@ -794,7 +794,7 @@ export default function Dashboard() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              Price % Discount
+              Price & Discount
               <input
                 type="number"
                 placeholder="Price (GHS)"
