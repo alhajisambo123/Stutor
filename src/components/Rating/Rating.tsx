@@ -9,17 +9,15 @@ const Rating: FC<Props> = ({ rating }) => {
   const fullStars = Math.floor(rating);
   const decimalPart = rating - fullStars;
 
-  const fullStarElements = Array(fullStars).fill(<FaStar />);
-
-  let halfStarElement = null;
-
-  if (decimalPart > 0) {
-    halfStarElement = <FaStarHalf />;
-  }
-
   return (
     <>
-      {fullStarElements} {halfStarElement}
+      {/* Render full stars with unique keys */}
+      {Array.from({ length: fullStars }, (_, i) => (
+        <FaStar key={`full-${i}`} />
+      ))}
+
+      {/* Render half star if applicable */}
+      {decimalPart > 0 && <FaStarHalf key="half" />}
     </>
   );
 };
