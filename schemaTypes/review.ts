@@ -58,12 +58,7 @@ const review = {
       to: [{ type: "course" }],
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: "text",
-    //   title: "Review Text",
-    //   type: "text",
-    //   validation: (Rule) => Rule.required(),
-    // }),
+   
     defineField({
       name: "userRating",
       title: "User Rating",
