@@ -700,7 +700,7 @@ export default function Dashboard() {
         <h1 className="text-2xl font-bold">Login to continue</h1>
         <button
           onClick={() => signIn("credentials")}
-          className=" btn-primary rounded bg-blue-500 text-white hover:bg-blue-600 transition"
+          className=" btn-primary rounded btn-primary text-white hover:bg-blue-600 transition"
         >
           Login
         </button>
@@ -817,6 +817,7 @@ export default function Dashboard() {
               value={course.mysession || ""}
               onChange={(e) => handleChange("mysession", e.target.value)}
               className="border px-4 py-3 rounded-md w-full resize-none text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-700 placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required
             />
             <textarea
               placeholder="Your Experience"
