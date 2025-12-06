@@ -14,7 +14,7 @@
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
     "formidable": "^3.5.4",
-    "next": "15.0.3",
+    "next": "^15.5.7",
     "next-auth": "^4.24.11",
     "next-auth-sanity": "^1.5.3",
     "next-sanity": "^9.8.29",
