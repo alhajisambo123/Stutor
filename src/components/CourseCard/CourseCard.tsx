@@ -28,7 +28,7 @@ alt="Description of the image"           width={250}
       <div className="p-4 bg-white">
         <div className="flex justify-between text-xl font-semibold">
           <p  >{name}</p>
-          <p>GH₵ add{price}</p>
+          <p>GH₵ {price}</p>
         </div>
 
         <p className="pt-2 text-xs">{type} Tutor</p>
