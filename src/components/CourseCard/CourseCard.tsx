@@ -1,6 +1,6 @@
 "use client"
 import { FC } from "react";
-import Image from "next/image";
+
 
 import { Course } from "@/models/course";
 import Link from "next/link";
@@ -11,19 +11,12 @@ type Props = {
 
 const CourseCard: FC<Props> = (props) => {
   const {
-    course: { coverImage, name, price, type, description, slug },
+    course: {  name, price, type, description, slug },
   } = props;
 
   return (
     <div className="rounded-xl w-72 mb-10 mx-auto md:mx-0 overflow-hidden text-black">
-      <div className="h-60 overflow-hidden">
-        <Image
-          src={coverImage.url}
-alt="Description of the image"           width={250}
-          height={250}
-          className="img scale-animation"
-        />
-      </div>
+  
 
       <div className="p-4 bg-white">
         <div className="flex justify-between text-xl font-semibold">
