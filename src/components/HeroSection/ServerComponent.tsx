@@ -4,20 +4,21 @@ import Link from "next/link";
 
 export const heading1 = (
   <>
-    <h1 className="font-heading mb-6">Unlock Your Learning Potential</h1>
-    <p className="text-[#4a4a4a] dark:text-[#ffffffea] mb-12 max-w-lg">
-      Connect with experienced student tutors for academic support and personal
-      learning.
+<h1 className="font-heading mb-6 text-5xl md:text-4xl leading-tight">
+  Stutor – Your Peer Tutors at University of Ghana <span className="text-[#006400]"></span>
+</h1>    <p className="text-[#4a4a4a] dark:text-[#ffffffea] mb-12 max-w-lg">
+     Learn from fellow Legon students who have already mastered the courses. 
+  Book sessions easily and improve your grades together.
     </p>
     <Link href="/courses">
-      <button className="btn-primary">Get Started</button>
+      <button className="btn-primary">Browse Tutors</button>
     </Link>
   </>
 );
 
 export const section2 = (
   <div className="md:grid hidden gap-8 grid-cols-1">
-    <div className="rounded-2xl overflow-hidden h-48">
+    <div className="rounded-2xl overflow-hidden h-4 8">
       <Image
         src="/images/hero12.jpg"
         alt="hero-1"
@@ -49,3 +50,4 @@ export const section2 = (
     </div>
   </div>
 );
+

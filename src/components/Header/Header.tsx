@@ -77,7 +77,8 @@ const Header = () => {
             <Link href="/">Home</Link>
           </li>
           <li className="hover:-translate-y-2 duration-500 transition-all">
-            <Link href="/courses">Courses</Link>
+            <Link href="/courses">             Tutors
+</Link>
           </li>
           <li className="hover:-translate-y-2 duration-500 transition-all">
             <Link href="/auth">Become a Tutor</Link>
@@ -103,10 +104,10 @@ const Header = () => {
             Home
           </Link>
           <Link href="/courses" onClick={() => setMenuOpen(false)}>
-            Courses
+             Tutors
           </Link>
           <Link href="/auth" onClick={() => setMenuOpen(false)}>
-            Become a Tutor
+            Tutors
           </Link>
 
                      <Link href="/contact">Contact Us</Link>
