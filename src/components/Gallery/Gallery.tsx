@@ -5,7 +5,7 @@ const Services = () => {
     <div className="mx-auto container py-16">
 
       {/* ====================== SERVICES SECTION ====================== */}
-      <div className="text-left mb-16">
+      <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">
           What We Offer at Stutor
         </h2>
@@ -142,7 +142,7 @@ const Services = () => {
             <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                 <Image
-                  src="/images/student1.jpg"
+                  src="/images/student1.jpeg"
                   alt="Akosua Mensah"
                   fill
                   className="object-cover"
