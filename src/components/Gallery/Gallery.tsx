@@ -12,7 +12,7 @@ const Gallery = () => {
             <Image
               alt="One-on-One Tutoring"
               className="img rounded-xl"
-              src="/images/hero-8.jpeg"
+              src="/images/one-one.jpg"
               width={500}
               height={300}
             />
@@ -35,7 +35,7 @@ const Gallery = () => {
             <Image
               alt="Group Study Sessions"
               className="img rounded-xl"
-              src="/images/hero-2.jpeg"
+              src="/images/group.jpg"
               width={500}
               height={300}
             />
@@ -58,7 +58,7 @@ const Gallery = () => {
             <Image
               alt="Exam Preparation"
               className="img rounded-xl"
-              src="/images/hero-3.jpeg"
+              src="/images/examprep.jpg"
               width={500}
               height={300}
             />

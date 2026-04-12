@@ -72,7 +72,7 @@ export default function LoginPage() {
             }
           />
 
-          <button type="submit" className="btn-primary w-full py-3 rounded-lg">
+          <button type="submit" className="btn-primary  w-full py-3 rounded-lg">
             Login
           </button>
         </form>

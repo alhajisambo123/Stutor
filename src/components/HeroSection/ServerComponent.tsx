@@ -19,7 +19,7 @@ export const section2 = (
   <div className="md:grid hidden gap-8 grid-cols-1">
     <div className="rounded-2xl overflow-hidden h-48">
       <Image
-        src="/images/hero-12.jpeg"
+        src="/images/hero12.jpg"
         alt="hero-1"
         width={300}
         height={300}
@@ -30,7 +30,7 @@ export const section2 = (
     <div className="grid grid-cols-2 gap-8 h-48">
       <div className="rounded-2xl overflow-hidden">
         <Image
-          src="/images/hero-2.jpeg"
+          src="/images/mc-business-analytics.jpg"
           alt="hero-2"
           width={300}
           height={300}
@@ -39,7 +39,7 @@ export const section2 = (
       </div>
       <div className="rounded-2xl overflow-hidden">
         <Image
-          src="/images/hero-4.jpeg"
+          src="/images/hero8.jpg"
           alt="hero-4"
           width={300}
           height={300}
