@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const heading1 = (
   <>
- <p className="text-4xl sm:text-5xl font-bold text-gray-600 mb-4">
+ <p className="text-4xl sm:text-5xl font-bold dark:text-[#ffffffea] text-gray-600 mb-4">
             Stutor – Your Peer Tutors at University of Ghana <span className="text-[#006400]"></span>
 </p>    <p className="text-[#4a4a4a] dark:text-[#ffffffea] mb-12 max-w-lg">
      Learn from fellow Legon students who have already mastered the courses. 

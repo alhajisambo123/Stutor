@@ -31,8 +31,8 @@ const Search: FC<Props> = ({
   };
 
   return (
-    <section className="bg-primary px-4 py-6 rounded-lg">
-      <div className="container mx-auto flex gap-4 flex-wrap justify-between items-center">
+    <section className="bg-primary px-4 py-6 rounded-lg dark:text-[#ffffffea]">
+      <div className="container mx-auto flex gap-4 dark:text-[#ffffffea] flex-wrap justify-between items-center">
         <div className="w-full md:1/3 lg:w-auto mb-4 md:mb-0">
           <label className="block text-sm font-medium mb-2 ">
             Course Type
@@ -41,7 +41,7 @@ const Search: FC<Props> = ({
             <select
               value={courseTypeFilter}
               onChange={handleCourseTypeChange}
-              className="w-full px-4 py-2 capitalize rounded text-gray-600 dark:bg-black focus:outline-none"
+              className="w-full px-4 py-2 capitalize rounded text-gray-600 dark:text-[#ffffffea] dark:bg-black focus:outline-none"
             >
               <option value="All">All</option>
               <option value="Humanities">Humanities</option>
@@ -54,7 +54,7 @@ const Search: FC<Props> = ({
         </div>
 
         <div className="w-full md:1/3 lg:w-auto mb-4 md:mb-0  ">
-          <label className="block text-sm font-medium mb-2 text-black   ">
+          <label className="block text-sm font-medium mb-2 text-black dark:text-[#ffffffea]   ">
              Course
           </label>
           <input
