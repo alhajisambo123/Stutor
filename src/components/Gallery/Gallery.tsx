@@ -9,7 +9,7 @@ const Services = () => {
         <h2 className="text-4xl font-bold mb-4">
           What We Offer at Stutor
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl">
+        <p className="text-lg text-gray-600 text-center max-w-2xl">
           Tailored academic support designed specifically for University of Ghana students
         </p>
       </div>
