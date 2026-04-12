@@ -5,14 +5,14 @@ const Services = () => {
     <div className="mx-auto container py-16">
 
       {/* ====================== SERVICES SECTION ====================== */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">
-          What We Offer at Stutor
-        </h2>
-        <p className="text-lg text-gray-600 text-center max-w-2xl">
-          Tailored academic support designed specifically for University of Ghana students
-        </p>
-      </div>
+      
+
+       <div className="text-center mb-12 text-gray-600">
+          <h2 className="text-4xl font-bold mb-4">          What We Offer at Stutor
+</h2>
+          <p className="text-lg text-gray-600">          Tailored academic support designed specifically for University of Ghana students
+</p>
+        </div>
 
       <div className="flex flex-col gap-20">
         
@@ -27,7 +27,7 @@ const Services = () => {
               height={370}
             />
           </div>
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-1/2 text-center text-gray-600 md:text-left">
             <h3 className="text-3xl font-bold mb-5">
               Personalized One-on-One Tutoring
             </h3>
@@ -50,7 +50,7 @@ const Services = () => {
               height={370}
             />
           </div>
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-1/2 text-center text-gray-600 md:text-left">
             <h3 className="text-3xl font-bold mb-5">
               Collaborative Group Study Sessions
             </h3>
@@ -73,7 +73,7 @@ const Services = () => {
               height={370}
             />
           </div>
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-1/2 text-center text-gray-600 md:text-left">
             <h3 className="text-3xl font-bold mb-5">
               Targeted Exam Preparation
             </h3>
@@ -88,15 +88,15 @@ const Services = () => {
       </div>
 
       {/* ====================== WHY STUTOR SECTION ====================== */}
-      <div className="mt-24 py-16 bg-gray-50 rounded-3xl">
+      <div className="mt-24 py-16 bg-gray-50 rounded-3xl text-gray-600">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Why Choose Stutor?</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-600">Why Choose Stutor?</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Built by Legon students, for Legon students
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 text-gray-600">
           <div className="bg-white p-8 rounded-2xl shadow-sm">
             <div className="text-4xl mb-4">🎓</div>
             <h3 className="font-bold text-xl mb-3">100% University of Ghana Students</h3>
@@ -106,7 +106,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
+          <div className="bg-white p-8 rounded-2xl shadow-sm text-gray-600" >
             <div className="text-4xl mb-4">⭐</div>
             <h3 className="font-bold text-xl mb-3">Verified Profiles & Ratings</h3>
             <p className="text-gray-600">
@@ -126,7 +126,7 @@ const Services = () => {
 
       {/* ====================== TESTIMONIALS SECTION ====================== */}
       <div className="mt-24">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 text-gray-600">
           <h2 className="text-4xl font-bold mb-4">What Legon Students Are Saying</h2>
           <p className="text-lg text-gray-600">Real experiences from real University of Ghana students</p>
         </div>
@@ -134,7 +134,7 @@ const Services = () => {
         <div className="grid md:grid-cols-3 gap-8">
           
           {/* Testimonial 1 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm">
+          <div className="bg-white p-8 rounded-3xl shadow-sm text-gray-600">
             <p className="text-gray-600 italic mb-6 leading-relaxed">
               Thanks to my Stutor for Financial Accounting, I finally understood the difficult parts. 
               My quiz score jumped from 14/30 to 27/30! Highly recommended.
@@ -161,7 +161,7 @@ const Services = () => {
               The group sessions are the best decision I made this semester. Studying alone was stressful, 
               but discussing with others made everything clearer.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-gray-600">
               <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/images/student2.jpg"
@@ -178,7 +178,7 @@ const Services = () => {
           </div>
 
           {/* Testimonial 3 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm">
+          <div className="bg-white p-8 rounded-3xl shadow-sm text-gray-600">
             <p className="text-gray-600 italic mb-6 leading-relaxed">
               My tutor explained Microeconomics so well that I actually started enjoying the course. 
               I went from barely passing to getting A in my mid-semester exams!
