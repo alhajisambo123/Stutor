@@ -4,6 +4,8 @@ import { useSession, signIn } from "next-auth/react";
 import { useEffect, useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -34,6 +36,15 @@ export default function LoginPage() {
     });
   };
 
+  const handleOAuthLogin = async () => {
+    try {
+      await signIn();
+      router.push("/");
+    } catch {
+      toast.error("Something went wrong");
+    }
+  };
+
   if (status === "loading") {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -43,9 +54,18 @@ export default function LoginPage() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4 dark:bg-black">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+
+<div className="flex items-center justify-center gap-6 mb-6">
+       
+          <FcGoogle
+            onClick={handleOAuthLogin}
+            className="text-4xl cursor-pointer hover:opacity-70 transition"
+          />
+        </div>
+
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input

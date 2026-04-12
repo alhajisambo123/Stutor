@@ -229,15 +229,13 @@ type Props = {
 
 const FeaturedCourse: FC<Props> = ({ featuredCourse }) => {
   return (
-    <section className="py-12 md:py-16 container mx-auto px-4 bg-white">
+    <section className="py-12 md:py-16 container mx-auto px-4 bg-white dark:bg-black">
       
       {/* Separate Top Heading - Optimized for Mobile */}
       <div className="text-left mb-10 md:mb-14">
         <p className="text-4xl sm:text-5xl font-bold text-gray-600 mb-4">
 Featured Course              </p>
-        <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-md">
-          Handpicked this month to help University of Ghana students excel
-        </p>
+        
       </div>
 
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
@@ -265,13 +263,14 @@ Featured Course              </p>
                   key={image._key ?? `featured-img-${index}`}
                   className="rounded-3xl overflow-hidden h-[150px] sm:h-[180px] md:h-[210px] shadow-lg"
                 >
-                  <Image
-                    src={image.url}
-                    alt={image._key ?? `image-${index}`}
-                    width={350}
-                    height={300}
-                    className="w-full h-full object-cover scale-animation"
-                  />
+                 <Image
+  src={featuredCourse.coverImage?.url || "/placeholder.jpg"}
+  alt={featuredCourse.name || "Course image"}
+  width={700}
+  height={500}
+  className="w-full h-full object-cover scale-animation"
+  priority
+/>
                 </div>
               ))}
             </div>

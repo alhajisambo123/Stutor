@@ -88,7 +88,7 @@ const Services = () => {
       </div>
 
       {/* ====================== WHY STUTOR SECTION ====================== */}
-      <div className="mt-24 py-16 bg-gray-50 rounded-3xl text-gray-600">
+      <div className="mt-24 py-16 bg-gray-50 rounded-3xl text-gray-600 dark:bg-black">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-gray-600">Why Choose Stutor?</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -97,7 +97,7 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 text-gray-600">
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <div className="text-4xl mb-4">🎓</div>
             <h3 className="font-bold text-xl mb-3">100% University of Ghana Students</h3>
             <p className="text-gray-600">
@@ -106,7 +106,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm text-gray-600" >
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <div className="text-4xl mb-4">⭐</div>
             <h3 className="font-bold text-xl mb-3">Verified Profiles & Ratings</h3>
             <p className="text-gray-600">
@@ -114,7 +114,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <div className="text-4xl mb-4">💰</div>
             <h3 className="font-bold text-xl mb-3">Affordable & Flexible</h3>
             <p className="text-gray-600">
@@ -134,10 +134,10 @@ const Services = () => {
         <div className="grid md:grid-cols-3 gap-8">
           
           {/* Testimonial 1 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm text-gray-600">
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <p className="text-gray-600 italic mb-6 leading-relaxed">
-              Thanks to my Stutor for Financial Accounting, I finally understood the difficult parts. 
-              My quiz score jumped from 14/30 to 27/30! Highly recommended.
+             &quot; Thanks to my Stutor for Financial Accounting, I finally understood the difficult parts. 
+              My quiz score jumped from 14/30 to 27/30! Highly recommended.&quot;
             </p>
             <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -149,17 +149,17 @@ const Services = () => {
                 />
               </div>
               <div>
-                <p className="font-semibold"> Kojo Appiah</p>
+                <p className="font-semibold text-gray-500"> Kojo Appiah</p>
                 <p className="text-sm text-gray-500">Level 300, Accounting</p>
               </div>
             </div>
           </div>
 
           {/* Testimonial 2 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm">
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <p className="text-gray-600 italic mb-6 leading-relaxed">
-              The group sessions are the best decision I made this semester. Studying alone was stressful, 
-              but discussing with others made everything clearer.
+             &quot;The group sessions are the best decision I made this semester. Studying alone was stressful, 
+              but discussing with others made everything clearer.&quot;
             </p>
             <div className="flex items-center gap-4 text-gray-600">
               <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -171,17 +171,17 @@ const Services = () => {
                 />
               </div>
               <div>
-                <p className="font-semibold">Akosua Mensah</p>
+                <p className="font-semibold text-gray-500">Akosua Mensah</p>
                 <p className="text-sm text-gray-500">Level 200, Computer Engineering</p>
               </div>
             </div>
           </div>
 
           {/* Testimonial 3 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm text-gray-600">
+          <div className="bg-white p-8 rounded-2xl shadow-sm dark:bg-black">
             <p className="text-gray-600 italic mb-6 leading-relaxed">
-              My tutor explained Microeconomics so well that I actually started enjoying the course. 
-              I went from barely passing to getting A in my mid-semester exams!
+              &quot; My tutor explained Microeconomics so well that I actually started enjoying the course. 
+              I went from barely passing to getting A in my mid-semester exams! &quot;
             </p>
             <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -193,7 +193,7 @@ const Services = () => {
                 />
               </div>
               <div>
-                <p className="font-semibold">Nana Yaa Asante</p>
+                <p className="font-semibold text-gray-500">Nana Yaa Asante</p>
                 <p className="text-sm text-gray-500">Level 300, Economics</p>
               </div>
             </div>

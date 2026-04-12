@@ -64,20 +64,20 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-4">
+    <div className="min-h-screen bg-white dark:bg-black py-16 px-4">
       <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10">
 
-        <h1 className="text-4xl font-extrabold text-center mb-4 text-gray-900 dark:text-white">
+        <h1 className="text-4xl font-extrabold text-center mb-4 text-gray-600 dark:text-gray-300">
           Contact Us
         </h1>
 
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-10 max-w-xl mx-auto">
+        <p className="text-center text-gray-600  dark:text-gray-300 mb-10 max-w-xl mx-auto">
           Have a question, feedback, or need assistance?  
           Our support team is always ready to help you.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700 p-5 rounded-xl mb-10">
-          <p className="text-blue-700 dark:text-blue-200 font-semibold text-center leading-relaxed">
+        <div className=" dark:bg-gray-800 border border-gray-600 dark:border-gray-600 p-5 rounded-xl mb-10">
+          <p className="text-gray-600 dark:text-gray-300 font-semibold text-center leading-relaxed">
             Can&apos;t find your preferred course on our platform?  
             Send us the course name and we will help connect you to the right tutor.
           </p>
@@ -135,7 +135,7 @@ const ContactPage = () => {
               Message
             </label>
             <textarea
-              placeholder="Tell us how we can assist you. You may also request a specific course..."
+              placeholder="Tell us how we can assist you. You may also request a specific tutor..."
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className="w-full h-36 p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"

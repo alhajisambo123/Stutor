@@ -54,9 +54,9 @@ const Auth = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4 dark:bg-black">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">
+        <h1 className="text-2xl text-gray-600  font-bold mb-6 text-center">
           Create an Account
         </h1>
 
