@@ -109,6 +109,12 @@ const Header = () => {
           <Link href="/auth" onClick={() => setMenuOpen(false)}>
             Become a Tutors
           </Link>
+          <Link href="/How-it-works"  onClick={() => setMenuOpen(false)}>
+                  How it works
+                </Link>
+                <Link href="/about" onClick={() => setMenuOpen(false)} >
+                  About Us
+                </Link>
 
                      <Link href="/contact">Contact Us</Link>
           
@@ -119,7 +125,6 @@ const Header = () => {
 };
 
 export default Header;
-
 
 
 

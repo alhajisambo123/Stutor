@@ -149,7 +149,7 @@ const Services = () => {
                 />
               </div>
               <div>
-                <p className="font-semibold">Akosua Mensah</p>
+                <p className="font-semibold"> Kojo Appiah</p>
                 <p className="text-sm text-gray-500">Level 300, Accounting</p>
               </div>
             </div>
@@ -171,7 +171,7 @@ const Services = () => {
                 />
               </div>
               <div>
-                <p className="font-semibold">Kojo Appiah</p>
+                <p className="font-semibold">Akosua Mensah</p>
                 <p className="text-sm text-gray-500">Level 200, Computer Engineering</p>
               </div>
             </div>
